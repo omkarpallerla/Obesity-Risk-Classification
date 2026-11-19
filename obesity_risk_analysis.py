@@ -3,6 +3,7 @@
 # Author: Omkar Pallerla | MS Business Analytics, ASU
 # =============================================================
 
+import os, sys
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
@@ -21,8 +22,13 @@ warnings.filterwarnings('ignore')
 plt.style.use('dark_background')
 COLORS = ['#4f9cf9', '#06d6a0', '#7c3aed', '#f59e0b', '#ef4444', '#ec4899']
 
+DATA_PATH = os.path.join('data', 'ObesityDataSet.csv')
+if not os.path.exists(DATA_PATH):
+    sys.exit(f"Missing {DATA_PATH} - see data/README.md for the download link.")
+os.makedirs('outputs', exist_ok=True)
+
 # ── 1. LOAD DATA ────────────────────────────────────────────
-df = pd.read_csv('ObesityDataSet.csv')
+df = pd.read_csv(DATA_PATH)
 print(f"Shape: {df.shape}")
 print(f"Target distribution:\n{df['NObeyesdad'].value_counts()}")
 

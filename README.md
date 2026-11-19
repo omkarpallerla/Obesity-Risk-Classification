@@ -68,15 +68,12 @@ Most ML projects stop at model accuracy. This one goes further: output probabili
 
 ```
 Obesity-Risk-Classification/
+├── obesity_risk_analysis.py
 ├── data/
-│   └── ObesityDataSet.csv
+│   └── ObesityDataSet.csv        # download - see data/README.md
 ├── notebooks/
 │   └── Obesity_Risk_Analysis.ipynb
-├── outputs/
-│   ├── risk_scores.csv
-│   ├── confusion_matrix.png
-│   ├── shap_summary.png
-│   └── feature_importance.png
+├── outputs/                      # risk_scores.csv, obesity_analysis.png (created on run)
 ├── requirements.txt
 └── README.md
 ```
@@ -84,6 +81,8 @@ Obesity-Risk-Classification/
 ---
 
 ## How to Run
+
+First download the public dataset as described in [`data/README.md`](data/README.md).
 
 ```bash
 git clone https://github.com/omkarpallerla/Obesity-Risk-Classification.git
@@ -105,4 +104,11 @@ jupyter notebook notebooks/Obesity_Risk_Analysis.ipynb
 
 ---
 
-Built by Omkar Pallerla - MS Business Analytics, ASU - BI Engineer - Azure | GCP | Databricks Certified
+## 🧪 Data & Reproducibility
+
+The UCI obesity dataset is public but is **not redistributed** in this repo - follow `data/README.md` to download it. About 77% of its rows are SMOTE-generated synthetic records (per the dataset authors), which inflates accuracy; the 94.2% / 0.97 figures above should be read in that light. Re-running the script will give slightly different numbers depending on library versions and the split.
+
+---
+
+
+Omkar Pallerla · MS Business Analytics, ASU · Business Intelligence Analyst · Google Cloud | Azure | Databricks | Snowflake Certified
